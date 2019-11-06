@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/cdjs-home-management/ClientApp/src/app/login/login.component.min.css
+/cdjs-home-management/ClientApp/src/app/login/login.component.css
+/cdjs-home-management/ClientApp/src/app/home/home.component.min.css
+/cdjs-home-management/ClientApp/src/app/home/home.component.css
+/cdjs-home-management/site.txt
