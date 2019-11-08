@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { RequestServices } from "../services/requestServices";
-import {Credential} from "../models/credential"
-import { fakeAsync } from '@angular/core/testing';
+import { Credential } from "../models/credential";
 
 @Component({
     selector: 'app-login',
@@ -10,13 +9,13 @@ import { fakeAsync } from '@angular/core/testing';
 })
 //const _reqServices = new RequestServices();
 export class LoginComponent {
+    loginModel: Credential;
     constructor(
         private _serviceRequest: RequestServices
-    ) { }
-    getPermission() {
-        let fakedata: Credential = new Credential();
-        fakedata.UserName = "test";
-        fakedata.PassWord = "test";
-      this._serviceRequest.checkCredential(fakedata);
-  }
+    ) {
+        this.loginModel =  new Credential();
+    }
+    loginUser() {
+        this._serviceRequest.checkCredential(this.loginModel);
+    }
 }

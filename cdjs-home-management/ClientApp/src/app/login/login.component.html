@@ -1,13 +1,13 @@
 <div class="login--form-box login">
   <h1 class="login--title">Log In</h1>
-  <form> 
+  <form #loginForm="ngForm" (submit) ="loginUser(loginForm)"> 
     <div class="form-group">
       <label for="UserName">User Name:</label>
-      <input class="form-control" id="UserName" placeholder="User Name" />
+      <input class="form-control" name="UserName"  [(ngModel)]="loginModel.UserName" placeholder="User Name" />
     </div>
     <div class="form-group">
       <label for="Password">Password:</label>
-      <input class="form-control" id="Password" type="password" placeholder="Password" />
+      <input class="form-control" name="Password"  type="password" [(ngModel)]="loginModel.Password" placeholder="Password" />
     </div>
      <!-- <button (click)="getPermission()">check api</button>-->
       <input class="btn btn-primary login--form-button" type="submit" value="Log In" />  
