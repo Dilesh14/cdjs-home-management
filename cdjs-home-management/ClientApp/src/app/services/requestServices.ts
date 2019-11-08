@@ -24,4 +24,8 @@ export class RequestServices{
             window.alert(result);
         });
     }
+    changeView() {
+        this.http.get("main/change").subscribe(res => {
+        });
+    }
 }

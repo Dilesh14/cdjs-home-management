@@ -40,7 +40,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="ClientApp\src\assets\loading.css" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="ClientApp\src\app\nav-menu\" />
+    <Folder Include="wwwroot\css\" />
   </ItemGroup>
 
   <ItemGroup>

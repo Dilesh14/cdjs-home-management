@@ -23,12 +23,14 @@ import { AppLandingPageComponent } from './Views/app-landing-page/app-landing-pa
     FormsModule,
     RouterModule.forRoot([
         { path: '', component: HomeComponent, pathMatch: 'full' },
-        {path:'login',component:LoginComponent},
+        { path: 'login', component: LoginComponent },
+        {path:'home',component: AppLandingPageComponent},
     ])
   ],
     providers: [
         RequestServices,
     ],
-  bootstrap: [AppComponent]
+    bootstrap: [AppComponent],
+    exports: [AppLandingPageComponent],
 })
 export class AppModule { }
