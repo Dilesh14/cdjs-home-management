@@ -17,5 +17,10 @@ namespace cdjs_home_management.Controllers
         {
             return true;
         }
+        [HttpGet("change")]
+        public ActionResult ChangeView()
+        {
+            return View("Change");
+        }
     }
 }
