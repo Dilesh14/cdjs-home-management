@@ -9,23 +9,22 @@ const HTTP_OPTION = {
 };
 @Injectable()
 export class RequestServices{
+    private response: boolean;
     constructor(
         private http: HttpClient
     ) {
         
     }
-    checkCredential(userData:Credential) {
-        this.http.post<Credential>("main/outh", userData, HTTP_OPTION).subscribe(result => {
-
+    checkCredential(userData:Credential):boolean {
+        this.http.post<boolean>("main/outh", userData, HTTP_OPTION).subscribe(result => {
+            this.response = result;
         });
+        return this.response;
     }
-    getPermission() {
-        return this.http.get("main/outh").subscribe(result => {
-            window.alert(result);
+    registerUser(userData: Credential): boolean {
+        this.http.post<boolean>('main/register', userData, HTTP_OPTION).subscribe(result => {
+            this.response = result;
         });
-    }
-    changeView() {
-        this.http.get("main/change").subscribe(res => {
-        });
+        return this.response;
     }
 }

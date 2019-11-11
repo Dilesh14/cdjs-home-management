@@ -11,7 +11,4 @@ export class AppLandingPageComponent implements OnInit {
 
   ngOnInit() {
   }
-    clicked() {
-        this._reqService.changeView();
-    }
 }
