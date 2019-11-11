@@ -12,6 +12,7 @@ export class RegisterComponent implements OnInit {
     constructor(private _requestServices: RequestServices, private _snackbar: MatSnackBar)
     {
         this.loginModel = new Credential();
+        this.response = false;
     }
     private response: boolean;
     loginModel: Credential;

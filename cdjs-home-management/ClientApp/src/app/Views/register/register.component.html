@@ -1,4 +1,7 @@
 <div class="register--form-box register">
+  <div class="alert alert-danger" role="alert">
+    Please do not use your frequently used password for this site. I still have to implement encryption!!!
+  </div>
   <h1 class="register--title"> Register</h1>
   <form #registerForm="ngForm" (submit)="registerUser(registerForm)">
     <div class="form-group">
