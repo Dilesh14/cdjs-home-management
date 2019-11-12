@@ -1,9 +1,11 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using cdjs_home_management.DbContexts;
 
 namespace cdjs_home_management
 {
@@ -20,6 +22,9 @@ namespace cdjs_home_management
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+            services.AddDbContext<cdjsentity>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("cdjs-database-key"))
+                );
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
