@@ -19,14 +19,16 @@ export class RegisterComponent implements OnInit {
     ngOnInit() {
     }
     registerUser() {
-        this.response = this._requestServices.registerUser(this.loginModel);
+        this._requestServices.registerUser(this.loginModel).subscribe(result => {
+            this.response = result;
+        });
         if (this.response) {
             this._snackbar.open("Registered User!!", "Okay", {
                 duration: 3000,
             });
         }
         else {
-            this._snackbar.open("Cant Register!!", "Okay", {
+            this._snackbar.open("User with same user Name Exits!!", "Okay", {
                 duration: 3000,
             });
         }

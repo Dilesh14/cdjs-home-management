@@ -7,6 +7,7 @@ namespace cdjs.entities
 {
     public class Users
     {
+        public int ID { get; set; }
         [Required]
         [MaxLength(50)]
         public string FirstName { get; set; }
@@ -18,6 +19,7 @@ namespace cdjs.entities
         public string EmailAddress { get; set; }
         [Required]
         public string Password { get; set; }
+        public string UserName { get; set; }
         public UserRole Role { get; set; } = UserRole.Member;
     }
 }

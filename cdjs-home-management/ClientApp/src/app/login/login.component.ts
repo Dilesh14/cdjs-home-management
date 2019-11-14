@@ -18,7 +18,10 @@ export class LoginComponent {
         this.loginModel =  new Credential();
     }
     loginUser() {
-        let response: boolean = this._serviceRequest.checkCredential(this.loginModel);
+        let response: boolean;
+        this._serviceRequest.checkCredential(this.loginModel).subscribe(result => {
+            response = result;
+        });
         if (response) {
             this._snackbar.open("Login Succesful!!", "okay", {
                 duration: 3000,
