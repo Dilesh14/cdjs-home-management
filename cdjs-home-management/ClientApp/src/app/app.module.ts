@@ -8,7 +8,6 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import {RequestServices} from './services/requestServices';
 import { AppLandingPageComponent } from './Views/app-landing-page/app-landing-page.component';
-import { TaskViewComponent } from './subviews/task-view/task-view.component';
 import {MatSliderModule } from "@angular/material/slider";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from "@angular/material/toolbar";
@@ -27,7 +26,6 @@ const routes = [
         HomeComponent,
         LoginComponent,
         AppLandingPageComponent,
-        TaskViewComponent,
         RegisterComponent,
   ],
   imports: [

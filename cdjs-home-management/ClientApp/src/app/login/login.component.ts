@@ -21,15 +21,21 @@ export class LoginComponent {
         let response: boolean;
         this._serviceRequest.checkCredential(this.loginModel).subscribe(result => {
             response = result;
-        });
-        if (response) {
-            this._snackbar.open("Login Succesful!!", "okay", {
-                duration: 3000,
-            });
-        } else {
-            this._snackbar.open("Invalid Username or Password!!", "okay", {
-                duration: 3000,
-            });
-        }
+        }, err => {
+                this._snackbar.open("Server Error!!!", "okay", {
+                    duration: 3000,
+                });
+        },
+          () => {
+              if (response) {
+                  this._snackbar.open("Login Succesful!!", "okay", {
+                      duration: 3000,
+                  });
+              } else {
+                  this._snackbar.open("Invalid Username or Password!!", "okay", {
+                      duration: 3000,
+                  });
+              }
+          });
     }
 }

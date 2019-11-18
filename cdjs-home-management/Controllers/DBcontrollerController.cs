@@ -37,7 +37,7 @@ namespace cdjs_home_management.Controllers
                 }
                 _context.Users.Add(_newUser);
                 _context.SaveChanges();
-            }
+            } 
             catch(Exception ex) 
             {
                 return false;
@@ -47,17 +47,18 @@ namespace cdjs_home_management.Controllers
         [HttpPost("checkCredential")]
         public async Task<bool>  CheckCredential([FromBody]Credential userData) 
         {
-            Users _reqUser = new Users 
+            try 
             {
-                UserName = userData.UserName,
-               Password =userData.Password
-            };
-            Users _userInfo = await _context.Users.FindAsync(_reqUser);
-            if (_userInfo.Password.Equals(userData.Password)) 
-            {
-                return true;
+                Users userInfo = await _context.GetUserInfoFromUserName(userData.UserName);
+                if (userInfo.Password.Equals(userData.Password)) 
+                {
+                    return true;
+                }
+                else {
+                    return false;
+                }
             }
-            else 
+            catch(Exception ex) 
             {
                 return false;
             }

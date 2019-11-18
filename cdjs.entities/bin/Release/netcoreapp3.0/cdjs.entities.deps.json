@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.0": {
+      "cdjs.entities/1.0.0": {
+        "runtime": {
+          "cdjs.entities.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "cdjs.entities/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

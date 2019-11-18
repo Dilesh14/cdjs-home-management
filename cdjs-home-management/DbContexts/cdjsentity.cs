@@ -18,5 +18,14 @@ namespace cdjs_home_management.DbContexts
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Users>().ToTable("Users");
         }
+        public async Task<Users> GetUserInfoFromUserName(string username) 
+        {
+            Users _findUser = Users.Where(x => x.UserName.Equals(username)).FirstOrDefault();
+            if(_findUser == null) 
+            {
+                throw new Exception();
+            }
+            return _findUser;
+        }
     }
 }
