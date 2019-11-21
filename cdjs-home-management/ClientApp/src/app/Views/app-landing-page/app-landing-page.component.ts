@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Credential} from "../../models/credential"
 import {RequestServices} from '../../services/requestServices'
 @Component({
   selector: 'app-landing-page',
@@ -8,7 +9,10 @@ import {RequestServices} from '../../services/requestServices'
 export class AppLandingPageComponent implements OnInit {
 
   constructor(private _reqService:RequestServices) { }
-
-  ngOnInit() {
+    private allUsers: Credential[];
+    ngOnInit() {
+        this._reqService.getAllUsers().subscribe(result => {
+            this.allUsers = result;
+        });
   }
 }

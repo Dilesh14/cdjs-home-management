@@ -21,4 +21,7 @@ export class RequestServices{
     registerUser(userData: Credential): Observable<boolean> {
         return this.http.post<boolean>('service/db/add', userData, HTTP_OPTION);
     }
+    getAllUsers(): Observable<Credential[]> {
+        return this.http.get<Credential[]>('service/db/allUsers');
+    }
 }

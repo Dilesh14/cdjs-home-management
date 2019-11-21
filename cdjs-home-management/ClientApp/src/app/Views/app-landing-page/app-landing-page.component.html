@@ -4,3 +4,19 @@
   </mat-toolbar>
   <mat-slider min="1" max="100" step="1" value="1"></mat-slider>
 </div>
+<table class="table">
+  <thead>
+    <tr>
+      <td>User Name</td>
+      <td>First Name</td>
+      <td>Last Name</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let users of allUsers">
+      <td>{{users.UserName}}</td>
+      <td>{{users.FirstName}}</td>
+      <td>{{users.LastName}}</td>
+    </tr>
+  </tbody>
+</table>

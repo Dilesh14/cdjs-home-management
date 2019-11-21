@@ -27,5 +27,10 @@ namespace cdjs_home_management.DbContexts
             }
             return _findUser;
         }
+        public async Task<IEnumerable<Users>> GetAllUsersAsync() 
+        {
+            IList<Users> allUsers = Users.ToList();
+            return allUsers;
+        }
     }
 }

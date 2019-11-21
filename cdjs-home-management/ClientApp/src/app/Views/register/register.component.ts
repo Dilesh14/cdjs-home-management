@@ -21,17 +21,19 @@ export class RegisterComponent implements OnInit {
     registerUser() {
         this._requestServices.registerUser(this.loginModel).subscribe(result => {
             this.response = result;
+        }, err => { }, () => {
+            if (this.response) {
+                this._snackbar.open("Registered User!!", "Okay", {
+                    duration: 3000,
+                });
+            }
+            else {
+                this._snackbar.open("User with same user Name Exits!!", "Okay", {
+                    duration: 3000,
+                });
+            }
         });
-        if (this.response) {
-            this._snackbar.open("Registered User!!", "Okay", {
-                duration: 3000,
-            });
-        }
-        else {
-            this._snackbar.open("User with same user Name Exits!!", "Okay", {
-                duration: 3000,
-            });
-        }
     }
-
 }
+
+

@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using cdjs_home_management.DbContexts;
+using cdjs_home_management.Repository.Interface;
+using cdjs_home_management.Repository;
 
 namespace cdjs_home_management
 {
@@ -30,6 +32,8 @@ namespace cdjs_home_management
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+            //DI
+            services.AddScoped<IRepositoryWrapper, RepositoryWrapper>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using cdjs.entities;
 using cdjs_home_management.DbContexts;
 using cdjs_home_management.Models;
+using cdjs_home_management.Repository.Interface;
 using Microsoft.AspNetCore.Mvc;
 
 namespace cdjs_home_management.Controllers
@@ -12,10 +13,10 @@ namespace cdjs_home_management.Controllers
     [Route("service/db")]
     public class DBcontrollerController : Controller
     {
-        private cdjsentity _context;
-        public DBcontrollerController(cdjsentity context) 
+        private IRepositoryWrapper _repoWrapper;
+        public DBcontrollerController(IRepositoryWrapper context) 
         {
-            _context = context;
+            _repoWrapper = context;
         }
         [HttpPost("add")]
         public bool AddUser([FromBody] Credential userData) 
@@ -30,13 +31,13 @@ namespace cdjs_home_management.Controllers
             };
             try 
             {
-                Users _userInfo = _context.Users.FirstOrDefault(x => x.FirstName.Equals(userData.FirstName));
-                if(_context.Users.Any(x=> userData.UserName.Equals(x.UserName))) 
+                Users _userInfo = _repoWrapper.Users.FirstOrDefault(x => x.FirstName.Equals(userData.FirstName));
+                if(_repoWrapper.Users.Any(x=> userData.UserName.Equals(x.UserName))) 
                 {
                     return false;
                 }
-                _context.Users.Add(_newUser);
-                _context.SaveChanges();
+                _repoWrapper.Users.Add(_newUser);
+                _repoWrapper.Save();
             } 
             catch(Exception ex) 
             {
@@ -61,6 +62,32 @@ namespace cdjs_home_management.Controllers
             catch(Exception ex) 
             {
                 return false;
+            }
+        }
+        public async Task<IEnumerable<Credential>> GetAllUsers() 
+        {
+            try
+            {
+                IEnumerable<Users> allUsers = await _context.GetAllUsersAsync();
+                IList<Credential> resultTosend = new List<Credential>();
+                allUsers.ToList().ForEach(x =>
+                {
+                    resultTosend.Add(
+                        new Credential
+                        {
+                            UserName = x.UserName,
+                            EmailAddress = x.EmailAddress,
+                            FirstName = x.FirstName,
+                            LastName = x.LastName
+                        }
+                        );
+                });
+                return resultTosend;
+            }
+            catch(Exception ex) 
+            {
+                Console.WriteLine(ex.Message + "\t" +ex.StackTrace);
+                return null;
             }
         }
     }

@@ -1,5 +1,6 @@
 ﻿using cdjs_home_management.DbContexts;
 using cdjs_home_management.Repository.Interface;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,27 +19,27 @@ namespace cdjs_home_management.Repository.Abstract
         }
         public void Create(T entity)
         {
-            throw new NotImplementedException();
+            _repoContext.Set<T>().Add(entity);
         }
 
         public void Delete(T entity)
         {
-            throw new NotImplementedException();
+            _repoContext.Set<T>().Remove(entity);
         }
 
         public IQueryable<T> FindAll()
         {
-            throw new NotImplementedException();
+            return _repoContext.Set<T>().AsNoTracking();
         }
 
         public IQueryable<T> FindByCondition(Expression<Func<T, bool>> expression)
         {
-            throw new NotImplementedException();
+            return _repoContext.Set<T>().Where(expression).AsNoTracking();
         }
 
         public void Update(T entity)
         {
-            throw new NotImplementedException();
+            _repoContext.Set<T>().Update(entity);
         }
     }
 }
