@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { HttpClient,HttpHeaders } from "@angular/common/http"
 import { getBaseUrl } from "../../main";
 import {Credential} from "../models/credential"
+import { Observable } from 'rxjs';
 const HTTP_OPTION = {
     headers: new HttpHeaders({
         'Content-Type': 'application/json'
@@ -14,18 +15,13 @@ export class RequestServices{
     ) {
         
     }
-    checkCredential(userData:Credential) {
-        this.http.post<Credential>("main/outh", userData, HTTP_OPTION).subscribe(result => {
-
-        });
+    checkCredential(userData:Credential):Observable<boolean> {
+        return this.http.post<boolean>("service/db/checkCredential", userData, HTTP_OPTION);
     }
-    getPermission() {
-        return this.http.get("main/outh").subscribe(result => {
-            window.alert(result);
-        });
+    registerUser(userData: Credential): Observable<boolean> {
+        return this.http.post<boolean>('service/db/add', userData, HTTP_OPTION);
     }
-    changeView() {
-        this.http.get("main/change").subscribe(res => {
-        });
+    getAllUsers(): Observable<Credential[]> {
+        return this.http.get<Credential[]>('service/db/allUsers');
     }
 }

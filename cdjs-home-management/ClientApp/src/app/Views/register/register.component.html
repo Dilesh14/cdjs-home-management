@@ -1,0 +1,29 @@
+<div class="register--form-box register">
+  <div class="alert alert-danger" role="alert">
+    Please do not use your frequently used password for this site. I still have to implement encryption!!!
+  </div>
+  <h1 class="register--title"> Register</h1>
+  <form #registerForm="ngForm" (submit)="registerUser(registerForm)">
+    <div class="form-group">
+      <label for="FirstName">First Name:</label>
+      <input class="form-control" placeholder="First Name" name="FirstName" required [(ngModel)]="loginModel.FirstName" />
+    </div>
+    <div class="form-group">
+      <label for="LastName">Last Name:</label>
+      <input class="form-control" name="LastName" placeholder="Last Name" required [(ngModel)]="loginModel.LastName" />
+    </div>
+    <div class="form-group">
+      <label for="UserName">User Name:</label>
+      <input placeholder="User Name" class="form-control" name="UserName" required [(ngModel)]="loginModel.UserName" />
+    </div>
+    <div class="form-group">
+      <label for="Password">Password:</label>
+      <input type="password" placeholder="Password" class="form-control" name="Password" required [(ngModel)]="loginModel.Password" />
+    </div>
+    <div class="form-group">
+      <label for="Email">Email:</label>
+      <input class="form-control" name="Email" placeholder="Email" required [(ngModel)]="loginModel.EmailAddress" />
+    </div>
+    <input class="btn btn-primary register--form-button" type="submit" value="Register" />
+  </form>
+</div>

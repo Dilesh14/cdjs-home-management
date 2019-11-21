@@ -15,12 +15,21 @@ namespace cdjs_home_management.Controllers
         [HttpPost("outh")]
         public bool CheckForCredential([FromBody]Credential userData)
         {
-            return true;
+            if (userData.UserName.Equals("dilesh")) 
+            {
+                return true;
+            }
+            return false;
         }
         [HttpGet("change")]
         public ActionResult ChangeView()
         {
             return View("Change");
+        }
+        [HttpPost("register") ]
+        public bool RegisterUser([FromBody] Credential userData) 
+        {
+            return true;
         }
     }
 }
