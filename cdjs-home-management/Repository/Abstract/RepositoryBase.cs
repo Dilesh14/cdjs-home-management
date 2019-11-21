@@ -17,27 +17,27 @@ namespace cdjs_home_management.Repository.Abstract
         {
             this._repoContext = context;
         }
-        public void Create(T entity)
+        public async Task Create(T entity)
         {
             _repoContext.Set<T>().Add(entity);
         }
 
-        public void Delete(T entity)
+        public async Task Delete(T entity)
         {
             _repoContext.Set<T>().Remove(entity);
         }
 
-        public IQueryable<T> FindAll()
+        public async Task<IQueryable<T>> FindAll()
         {
             return _repoContext.Set<T>().AsNoTracking();
         }
 
-        public IQueryable<T> FindByCondition(Expression<Func<T, bool>> expression)
+        public async Task<IQueryable<T>> FindByCondition(Expression<Func<T, bool>> expression)
         {
             return _repoContext.Set<T>().Where(expression).AsNoTracking();
         }
 
-        public void Update(T entity)
+        public async Task Update(T entity)
         {
             _repoContext.Set<T>().Update(entity);
         }

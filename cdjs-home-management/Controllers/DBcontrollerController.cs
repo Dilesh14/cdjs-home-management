@@ -19,7 +19,7 @@ namespace cdjs_home_management.Controllers
             _repoWrapper = context;
         }
         [HttpPost("add")]
-        public bool AddUser([FromBody] Credential userData) 
+        public async Task<bool> AddUser([FromBody] Credential userData) 
         {
             Users _newUser = new Users
             {
@@ -31,12 +31,12 @@ namespace cdjs_home_management.Controllers
             };
             try 
             {
-                Users _userInfo = _repoWrapper.Users.FirstOrDefault(x => x.FirstName.Equals(userData.FirstName));
-                if(_repoWrapper.Users.Any(x=> userData.UserName.Equals(x.UserName))) 
+                IList<Users> _userInfo = (await _repoWrapper.Users.FindByCondition(x => x.FirstName.Equals(userData.FirstName))).ToList();
+                if(_userInfo.Any(x=> userData.UserName.Equals(x.UserName))) 
                 {
                     return false;
                 }
-                _repoWrapper.Users.Add(_newUser);
+                _repoWrapper.Users.Create(_newUser);
                 _repoWrapper.Save();
             } 
             catch(Exception ex) 
@@ -50,7 +50,7 @@ namespace cdjs_home_management.Controllers
         {
             try 
             {
-                Users userInfo = await _context.GetUserInfoFromUserName(userData.UserName);
+                Users userInfo = (await _repoWrapper.Users.FindByCondition(x=> x.UserName.Equals(userData.UserName))).ToList().FirstOrDefault();
                 if (userInfo.Password.Equals(userData.Password)) 
                 {
                     return true;
@@ -68,7 +68,7 @@ namespace cdjs_home_management.Controllers
         {
             try
             {
-                IEnumerable<Users> allUsers = await _context.GetAllUsersAsync();
+                IEnumerable<Users> allUsers = await _repoWrapper.Users.FindAll();
                 IList<Credential> resultTosend = new List<Credential>();
                 allUsers.ToList().ForEach(x =>
                 {
