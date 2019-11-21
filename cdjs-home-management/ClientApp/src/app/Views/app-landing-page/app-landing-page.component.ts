@@ -8,11 +8,12 @@ import {RequestServices} from '../../services/requestServices'
 })
 export class AppLandingPageComponent implements OnInit {
 
-  constructor(private _reqService:RequestServices) { }
-    private allUsers: Credential[];
-    ngOnInit() {
+  private allUsers: Credential[]; 
+    constructor(private _reqService: RequestServices) {
         this._reqService.getAllUsers().subscribe(result => {
             this.allUsers = result;
         });
-  }
+    }
+    ngOnInit() {
+    }
 }

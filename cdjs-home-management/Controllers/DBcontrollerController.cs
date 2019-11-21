@@ -64,6 +64,7 @@ namespace cdjs_home_management.Controllers
                 return false;
             }
         }
+        [HttpGet("allUsers")]
         public async Task<IEnumerable<Credential>> GetAllUsers() 
         {
             try

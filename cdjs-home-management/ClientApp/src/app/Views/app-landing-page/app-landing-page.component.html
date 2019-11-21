@@ -10,13 +10,15 @@
       <td>User Name</td>
       <td>First Name</td>
       <td>Last Name</td>
+      <td>Email Address</td>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let users of allUsers">
-      <td>{{users.UserName}}</td>
-      <td>{{users.FirstName}}</td>
-      <td>{{users.LastName}}</td>
+      <td>{{users.userName}}</td>
+      <td>{{users.firstName}}</td>
+      <td>{{users.lastName}}</td>
+      <td>{{users.emailAddress}}</td>
     </tr>
   </tbody>
 </table>
