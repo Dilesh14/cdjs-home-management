@@ -1,24 +1,31 @@
-<div class="app-landing-page--title">
+<div>
   <mat-toolbar>
-    <label > Home Page</label>
+    <label class="app-landing-page--title"> Home Page</label>
   </mat-toolbar>
   <mat-slider min="1" max="100" step="1" value="1"></mat-slider>
 </div>
-<table class="table">
-  <thead>
-    <tr>
-      <td>User Name</td>
-      <td>First Name</td>
-      <td>Last Name</td>
-      <td>Email Address</td>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let users of allUsers">
-      <td>{{users.userName}}</td>
-      <td>{{users.firstName}}</td>
-      <td>{{users.lastName}}</td>
-      <td>{{users.emailAddress}}</td>
-    </tr>
-  </tbody>
-</table>
+<div class="app-landing-page--Users-detail-container">
+  <div class="app-landing-page--Users-table">
+    <table class="table">
+      <thead>
+        <tr>
+          <td>User Name</td>
+          <td>First Name</td>
+          <td>Last Name</td>
+          <td>Email Address</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let users of allUsers">
+          <td>{{users.userName}}</td>
+          <td>{{users.firstName}}</td>
+          <td>{{users.lastName}}</td>
+          <td>{{users.emailAddress}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="app-landing-page--Users-task">
+
+  </div>
+</div>
