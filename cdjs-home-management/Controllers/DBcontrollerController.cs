@@ -14,12 +14,12 @@ namespace cdjs_home_management.Controllers
     public class DBcontrollerController : Controller
     {
         private IRepositoryWrapper _repoWrapper;
-        public DBcontrollerController(IRepositoryWrapper context) 
+        public DBcontrollerController(IRepositoryWrapper context)
         {
             _repoWrapper = context;
         }
         [HttpPost("add")]
-        public async Task<bool> AddUser([FromBody] Credential userData) 
+        public async Task<bool> AddUser([FromBody] Credential userData)
         {
             Users _newUser = new Users
             {
@@ -29,43 +29,44 @@ namespace cdjs_home_management.Controllers
                 Password = userData.Password,
                 UserName = userData.UserName
             };
-            try 
+            try
             {
                 IList<Users> _userInfo = (await _repoWrapper.Users.FindByCondition(x => x.FirstName.Equals(userData.FirstName))).ToList();
-                if(_userInfo.Any(x=> userData.UserName.Equals(x.UserName))) 
+                if (_userInfo.Any(x => userData.UserName.Equals(x.UserName)))
                 {
                     return false;
                 }
                 _repoWrapper.Users.Create(_newUser);
                 _repoWrapper.Save();
-            } 
-            catch(Exception ex) 
+            }
+            catch (Exception ex)
             {
                 return false;
             }
             return true;
         }
         [HttpPost("checkCredential")]
-        public async Task<bool>  CheckCredential([FromBody]Credential userData) 
+        public async Task<bool> CheckCredential([FromBody]Credential userData)
         {
-            try 
+            try
             {
-                Users userInfo = (await _repoWrapper.Users.FindByCondition(x=> x.UserName.Equals(userData.UserName))).ToList().FirstOrDefault();
-                if (userInfo.Password.Equals(userData.Password)) 
+                Users userInfo = (await _repoWrapper.Users.FindByCondition(x => x.UserName.Equals(userData.UserName))).ToList().FirstOrDefault();
+                if (userInfo.Password.Equals(userData.Password))
                 {
                     return true;
                 }
-                else {
+                else
+                {
                     return false;
                 }
             }
-            catch(Exception ex) 
+            catch (Exception ex)
             {
                 return false;
             }
         }
         [HttpGet("allUsers")]
-        public async Task<IEnumerable<Credential>> GetAllUsers() 
+        public async Task<IEnumerable<Credential>> GetAllUsers()
         {
             try
             {
@@ -85,11 +86,17 @@ namespace cdjs_home_management.Controllers
                 });
                 return resultTosend;
             }
-            catch(Exception ex) 
+            catch (Exception ex)
             {
-                Console.WriteLine(ex.Message + "\t" +ex.StackTrace);
+                Console.WriteLine(ex.Message + "\t" + ex.StackTrace);
                 return null;
             }
+        }
+        [HttpGet("tasks/Users")]
+        public async Task<IEnumerable<string>> GetTaskofUser([FromBody] Credential userData)
+        {
+            string[] tasks = new string[2];
+            return null;
         }
     }
 }
