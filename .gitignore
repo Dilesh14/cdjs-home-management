@@ -10,3 +10,5 @@
 /cdjs-home-management/GlobalSuppressions.cs
 /cdjs-home-management/appsettings.json
 /cdjs-home-management/appsettings.Development.json
+/cdjs.entities/bin
+/cdjs.entities/obj

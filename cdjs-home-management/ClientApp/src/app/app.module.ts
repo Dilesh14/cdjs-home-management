@@ -13,6 +13,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
 import { RegisterComponent } from './views/register/register.component';
+import { TaskViewComponent } from './views/task-view/task-view.component';
 const routes = [
     { path: '', component: HomeComponent, pathMatch: 'full' },
     { path: 'login', component: LoginComponent },
@@ -27,6 +28,7 @@ const routes = [
         LoginComponent,
         AppLandingPageComponent,
         RegisterComponent,
+        TaskViewComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
