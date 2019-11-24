@@ -1,8 +1,0 @@
-C:\Users\Dilesh\source\repos\CDJS-home-management\cdjs.entities\bin\Release\netcoreapp3.0\cdjs.entities.deps.json
-C:\Users\Dilesh\source\repos\CDJS-home-management\cdjs.entities\bin\Release\netcoreapp3.0\cdjs.entities.dll
-C:\Users\Dilesh\source\repos\CDJS-home-management\cdjs.entities\bin\Release\netcoreapp3.0\cdjs.entities.pdb
-C:\Users\Dilesh\source\repos\CDJS-home-management\cdjs.entities\obj\Release\netcoreapp3.0\cdjs.entities.csprojAssemblyReference.cache
-C:\Users\Dilesh\source\repos\CDJS-home-management\cdjs.entities\obj\Release\netcoreapp3.0\cdjs.entities.AssemblyInfoInputs.cache
-C:\Users\Dilesh\source\repos\CDJS-home-management\cdjs.entities\obj\Release\netcoreapp3.0\cdjs.entities.AssemblyInfo.cs
-C:\Users\Dilesh\source\repos\CDJS-home-management\cdjs.entities\obj\Release\netcoreapp3.0\cdjs.entities.dll
-C:\Users\Dilesh\source\repos\CDJS-home-management\cdjs.entities\obj\Release\netcoreapp3.0\cdjs.entities.pdb
