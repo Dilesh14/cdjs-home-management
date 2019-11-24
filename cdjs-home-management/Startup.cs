@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
@@ -8,7 +9,8 @@ using Microsoft.Extensions.DependencyInjection;
 using cdjs_home_management.DbContexts;
 using cdjs_home_management.Repository.Interface;
 using cdjs_home_management.Repository;
-
+using cdjs_home_management.Models.Identity;
+using System;
 namespace cdjs_home_management
 {
     public class Startup
@@ -27,6 +29,9 @@ namespace cdjs_home_management
             services.AddDbContext<cdjsentity>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("cdjs-database-key"))
                 );
+            //adding identity for role setup
+            
+
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
@@ -53,8 +58,8 @@ namespace cdjs_home_management
             app.UseSpaStaticFiles();
 
             app.UseRouting();
+            app.UseAuthentication();
             app.UseAuthorization();
-            
             app.UseEndpoints(endpoints =>
             { 
                 endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
