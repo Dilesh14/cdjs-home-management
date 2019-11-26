@@ -24,4 +24,7 @@ export class RequestServices{
     getAllUsers(): Observable<Credential[]> {
         return this.http.get<Credential[]>('service/db/allUsers');
     }
+    getUsersTask(userData: Credential):Observable<string[]> {
+        return this.http.get<string[]>('service/db/tasksUsers');
+    }
 }

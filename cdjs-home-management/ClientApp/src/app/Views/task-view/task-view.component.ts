@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { task} from '../../models/Task'
 
 @Component({
   selector: 'app-task-view',
@@ -6,8 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./task-view.component.css']
 })
 export class TaskViewComponent implements OnInit {
-
-  constructor() { }
+    private taskModel: task;
+    constructor() {
+        this.taskModel = new task();
+    }
 
     ngOnInit() {
       //Call the database..
@@ -15,6 +18,7 @@ export class TaskViewComponent implements OnInit {
         //server.
         //[for me] decide whether to show all the users task or just the
         //signed in users task
-  }
+    }
+
 
 }

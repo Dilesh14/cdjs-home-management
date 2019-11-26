@@ -9,8 +9,8 @@ using cdjs_home_management.DbContexts;
 namespace cdjshomemanagement.Migrations
 {
     [DbContext(typeof(cdjsentity))]
-    [Migration("20191118011335_initialBuild")]
-    partial class initialBuild
+    [Migration("20191126020942_task table")]
+    partial class tasktable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -19,6 +19,27 @@ namespace cdjshomemanagement.Migrations
                 .HasAnnotation("ProductVersion", "3.0.0")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("cdjs.entities.TaskHandler", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Day")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UsersId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Work")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Tasks");
+                });
 
             modelBuilder.Entity("cdjs.entities.Users", b =>
                 {

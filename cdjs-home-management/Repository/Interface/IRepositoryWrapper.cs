@@ -9,6 +9,7 @@ namespace cdjs_home_management.Repository.Interface
     public interface IRepositoryWrapper
     {
         IUserRepository Users { get; }
+        ITaskRepository Tasks{ get; }
         void Save();
     }
 }

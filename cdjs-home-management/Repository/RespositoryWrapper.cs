@@ -11,6 +11,7 @@ namespace cdjs_home_management.Repository
     {
         private cdjsentity _context;
         private IUserRepository _Users;
+        private ITaskRepository _Tasks;
         public IUserRepository Users 
         {
             get
@@ -20,6 +21,17 @@ namespace cdjs_home_management.Repository
                     _Users = new UserRepository(_context);
                 }
                 return _Users;
+            }
+        }
+        public ITaskRepository Tasks 
+        {
+            get
+            {
+                if(_Tasks == null) 
+                {
+                    _Tasks = new TaskRepository(_context);
+                }
+                return _Tasks;
             }
         }
         public RepositoryWrapper(cdjsentity context) 

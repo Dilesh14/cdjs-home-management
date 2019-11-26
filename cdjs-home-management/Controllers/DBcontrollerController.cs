@@ -92,11 +92,26 @@ namespace cdjs_home_management.Controllers
                 return null;
             }
         }
-        [HttpGet("tasks/Users")]
-        public async Task<IEnumerable<string>> GetTaskofUser([FromBody] Credential userData)
+        [HttpPost("createTask")]
+        public async Task<IList<TaskHandler>> CreateTaskOfUser([FromBody] Credential userData)
         {
-            string[] tasks = new string[2];
-            return null;
+            Users UserId = (await _repoWrapper.Users.FindByCondition(x => x.UserName == userData.UserName)).FirstOrDefault();
+            if(UserId == null) 
+            {
+                return null;
+            }
+            TaskHandler task = new TaskHandler() 
+            {
+                Day = Days.Saturday,
+                Work = Tasks.Dishes,
+                UsersId = UserId.ID
+            };
+            await _repoWrapper.Tasks.Create(task);
+            return (await _repoWrapper.Tasks.FindAll()).ToList();
+        }
+        public async Task<IList<TaskHandler>> GetAllTasks() 
+        {
+            return (await _repoWrapper.Tasks.FindAll()).ToList();
         }
     }
 }

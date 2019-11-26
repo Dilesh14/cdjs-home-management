@@ -17,7 +17,8 @@ namespace cdjs_home_management.DbContexts
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<Users>().ToTable("Users");
+            //modelBuilder.Entity<Users>().ToTable("Users");
+            //modelBuilder.Entity<TaskHandler>().ToTable("Tasks");
         }
         public async Task<Users> GetUserInfoFromUserName(string username) 
         {

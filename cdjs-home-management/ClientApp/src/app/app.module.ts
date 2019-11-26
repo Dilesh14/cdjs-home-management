@@ -15,11 +15,14 @@ import { MatSnackBarModule } from "@angular/material/snack-bar";
 import { RegisterComponent } from './views/register/register.component';
 import { TaskViewComponent } from './views/task-view/task-view.component';
 const routes = [
+    {
+        path: 'home', component: TaskViewComponent,
+        outlet: 'taskOutlet'
+    },
     { path: '', component: HomeComponent, pathMatch: 'full' },
     { path: 'login', component: LoginComponent },
     { path: 'home', component: AppLandingPageComponent },
-    {path:'register',component:RegisterComponent}
-   
+    { path: 'register', component: RegisterComponent }
 ];
 @NgModule({
   declarations: [
