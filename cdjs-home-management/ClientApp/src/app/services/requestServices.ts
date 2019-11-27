@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { HttpClient,HttpHeaders } from "@angular/common/http"
 import { getBaseUrl } from "../../main";
 import {Credential} from "../models/credential"
+import {TaskRequest} from "../models/httpModels/TaskRequest"
 import { Observable } from 'rxjs';
 const HTTP_OPTION = {
     headers: new HttpHeaders({
@@ -26,5 +27,8 @@ export class RequestServices{
     }
     getUsersTask(userData: Credential):Observable<string[]> {
         return this.http.get<string[]>('service/db/tasksUsers');
+    }
+    createUsersTask(userData: TaskRequest):Observable<boolean>{
+        return this.http.post<boolean>('service/db/createTask', userData, HTTP_OPTION);
     }
 }

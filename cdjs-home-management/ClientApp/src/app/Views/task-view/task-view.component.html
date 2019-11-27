@@ -6,15 +6,15 @@
 <form #createTaskForm="ngForm" (submit)="createTask(createTaskForm)">
   <div class="form-group">
     <label for="UserName">User Name</label>
-    <input class="form-control" name="UserName" placeholder="User Name" required [(ngModel)]="taskModel." />
+    <input class="form-control" name="UserName" placeholder="User Name" required [(ngModel)]="taskModel.user.UserName" />
   </div>
   <div class="form-group">
     <label for="Task">Work</label>
-    <input type="week" class="form-control" name="Work" placeholder="Task" required />
+    <input type="week" class="form-control" name="Work" placeholder="Task" required [(ngModel)]="taskModel.task.Work"/>
   </div>
   <div class="form-group">
     <label for="Day">Day</label>
-    <input type="week" class="form-control" name="Day" placeholder="Day" required />
+    <input type="week" class="form-control" name="Day" placeholder="Day" required [(ngModel)]="taskModel.task.Day" />
   </div>
   <input type="submit" class="btn btn-primary" value="Create Task" />
 </form>

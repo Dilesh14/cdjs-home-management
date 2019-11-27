@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using cdjs.entities;
 using cdjs_home_management.DbContexts;
 using cdjs_home_management.Models;
+using cdjs_home_management.Models.HttpModels;
 using cdjs_home_management.Repository.Interface;
 using Microsoft.AspNetCore.Mvc;
 
@@ -93,12 +94,12 @@ namespace cdjs_home_management.Controllers
             }
         }
         [HttpPost("createTask")]
-        public async Task<IList<TaskHandler>> CreateTaskOfUser([FromBody] Credential userData)
+        public async Task<bool> CreateTaskOfUser([FromBody] TaskRequestModel userData)
         {
             Users UserId = (await _repoWrapper.Users.FindByCondition(x => x.UserName == userData.UserName)).FirstOrDefault();
             if(UserId == null) 
             {
-                return null;
+                return false;
             }
             TaskHandler task = new TaskHandler() 
             {
@@ -107,7 +108,7 @@ namespace cdjs_home_management.Controllers
                 UsersId = UserId.ID
             };
             await _repoWrapper.Tasks.Create(task);
-            return (await _repoWrapper.Tasks.FindAll()).ToList();
+            return true;
         }
         public async Task<IList<TaskHandler>> GetAllTasks() 
         {

@@ -1,4 +1,4 @@
-.app-landing-page--main-container {
+﻿.app-landing-page--main-container {
   background-color: red;
   width: 50%;
   height: 50%;
@@ -19,10 +19,9 @@
 .app-landing-page--Users-task {
   display: block;
   width: 400px;
-  height: 400px;
+  height: auto;
   background-color: aquamarine;
 }
 .app-landing-page--Users-detail-container > div {
-  padding-left: 20px;
-  padding-right: 20px;
+  padding: 20px;
 }
