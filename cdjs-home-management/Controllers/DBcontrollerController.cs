@@ -96,23 +96,25 @@ namespace cdjs_home_management.Controllers
         [HttpPost("createTask")]
         public async Task<bool> CreateTaskOfUser([FromBody] TaskRequestModel userData)
         {
-            Users UserId = (await _repoWrapper.Users.FindByCondition(x => x.UserName == userData.UserName)).FirstOrDefault();
-            if(UserId == null) 
-            {
-                return false;
-            }
-            TaskHandler task = new TaskHandler() 
-            {
-                Day = Days.Saturday,
-                Work = Tasks.Dishes,
-                UsersId = UserId.ID
-            };
-            await _repoWrapper.Tasks.Create(task);
-            return true;
-        }
-        public async Task<IList<TaskHandler>> GetAllTasks() 
-        {
-            return (await _repoWrapper.Tasks.FindAll()).ToList();
+            //    Users UserId = (await _repoWrapper.Users.FindByCondition(x => x.UserName == userData.UserName)).FirstOrDefault();
+            //    if(UserId == null) 
+            //    {
+            //        return false;
+            //    }
+            //    TaskHandler task = new TaskHandler() 
+            //    {
+            //        Day = Days.Saturday,
+            //        Work = Tasks.Dishes,
+            //        UsersId = UserId.ID
+            //    };
+            //    await _repoWrapper.Tasks.Create(task);
+            //    return true;
+            //}
+            //public async Task<IList<TaskHandler>> GetAllTasks() 
+            //{
+            //    return (await _repoWrapper.Tasks.FindAll()).ToList();
+            //}
+            return false;
         }
     }
 }

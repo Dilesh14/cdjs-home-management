@@ -7,7 +7,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent implements OnInit {
+export class Registercomponent implements OnInit {
 
     constructor(private _requestServices: RequestServices, private _snackbar: MatSnackBar)
     {

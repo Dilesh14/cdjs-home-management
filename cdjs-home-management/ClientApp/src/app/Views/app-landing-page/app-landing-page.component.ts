@@ -7,7 +7,7 @@ import { RouteReuseStrategy } from '@angular/router';
   templateUrl: './app-landing-page.component.html',
   styleUrls: ['./app-landing-page.component.css']
 })
-export class AppLandingPageComponent implements OnInit {
+export class AppLandingPagecomponent implements OnInit {
 
     private allUsers: Credential[];
     constructor(private _reqService: RequestServices) {

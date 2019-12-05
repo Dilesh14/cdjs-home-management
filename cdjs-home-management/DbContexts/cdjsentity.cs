@@ -18,7 +18,7 @@ namespace cdjs_home_management.DbContexts
         {
             base.OnModelCreating(modelBuilder);
             //modelBuilder.Entity<Users>().ToTable("Users");
-            //modelBuilder.Entity<TaskHandler>().ToTable("Tasks");
+            modelBuilder.Entity<TaskHandler>().ToTable("Tasks");
         }
         public async Task<Users> GetUserInfoFromUserName(string username) 
         {

@@ -7,12 +7,12 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import {RequestServices} from './services/requestServices';
-import { AppLandingPageComponent } from './Views/app-landing-page/app-landing-page.component';
+import { AppLandingPagecomponent } from './Views/app-landing-page/app-landing-page.component';
 import {MatSliderModule } from "@angular/material/slider";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
-import { RegisterComponent } from './views/register/register.component';
+import { Registercomponent } from './views/register/register.component';
 import { TaskViewComponent } from './views/task-view/task-view.component';
 const routes = [
     {
@@ -21,16 +21,16 @@ const routes = [
     },
     { path: '', component: HomeComponent, pathMatch: 'full' },
     { path: 'login', component: LoginComponent },
-    { path: 'home', component: AppLandingPageComponent },
-    { path: 'register', component: RegisterComponent }
+    { path: 'home', component: AppLandingPagecomponent },
+    { path: 'register', component: Registercomponent }
 ];
 @NgModule({
   declarations: [
         AppComponent,
         HomeComponent,
         LoginComponent,
-        AppLandingPageComponent,
-        RegisterComponent,
+        AppLandingPagecomponent,
+        Registercomponent,
         TaskViewComponent,
   ],
   imports: [

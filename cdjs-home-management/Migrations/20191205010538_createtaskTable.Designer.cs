@@ -9,8 +9,8 @@ using cdjs_home_management.DbContexts;
 namespace cdjshomemanagement.Migrations
 {
     [DbContext(typeof(cdjsentity))]
-    [Migration("20191126020942_tasktable")]
-    partial class tasktable
+    [Migration("20191205010538_createtaskTable")]
+    partial class createtaskTable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
