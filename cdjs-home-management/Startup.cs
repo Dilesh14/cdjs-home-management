@@ -25,7 +25,7 @@ namespace cdjs_home_management
         {
             services.AddRazorPages();
             services.AddDbContext<cdjsentity>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("cdjs-database-key"))
+                options.UseSqlServer(Configuration["cdjs-database-key"])
                 );
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
