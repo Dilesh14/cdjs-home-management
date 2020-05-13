@@ -10,6 +10,7 @@ namespace cdjs_home_management.DbContexts
     public class cdjsentity : DbContext
     {
         public DbSet<Users> Users {get;set;}
+        public DbSet<task> Tasks { get; set; }
         public cdjsentity(DbContextOptions<cdjsentity> options) : base(options) 
         {
         }
@@ -17,6 +18,8 @@ namespace cdjs_home_management.DbContexts
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Users>().ToTable("Users");
+            modelBuilder.Entity<task>().ToTable("Tasks");
+            modelBuilder.Entity<task>().HasKey(x => x.Id);
         }
         public async Task<Users> GetUserInfoFromUserName(string username) 
         {

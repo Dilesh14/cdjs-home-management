@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using cdjs_home_management.DbContexts;
 
 namespace cdjshomemanagement.Migrations
 {
     [DbContext(typeof(cdjsentity))]
-    partial class cdjsentityModelSnapshot : ModelSnapshot
+    [Migration("20200513010852_task_table_check")]
+    partial class task_table_check
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
