@@ -3,6 +3,7 @@ using cdjs_home_management.DbContexts;
 using cdjs_home_management.Repository.Abstract;
 using cdjs_home_management.Repository.Interface;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace cdjs_home_management.Repository
@@ -14,24 +15,27 @@ namespace cdjs_home_management.Repository
         {
             _context = context;
         }
-        public Task<bool> Add(task newTask)
+        public async Task<bool> Add(task newTask)
         {
-            throw new System.NotImplementedException();
+            await base.Create(newTask);
+            return true;
         }
 
-        public Task<bool> Delete(task task)
+        public async Task<bool> Delete(task task)
         {
-            throw new System.NotImplementedException();
+            await base.Delete(task);
+            return true;
         }
 
-        public Task<ICollection<task>> GetAll()
+        public async Task<IQueryable<task>> GetAll()
         {
-            throw new System.NotImplementedException();
+            return await base.FindAll();
         }
 
-        public Task<bool> Update(task task)
+        public async Task<bool> Update(task task)
         {
-            throw new System.NotImplementedException();
+            await base.Update(task);
+            return true;
         }
     }
 }
